@@ -1,0 +1,31 @@
+{
+  "name": "tokenspliter",
+  "version": "0.0.1",
+  "description": "Simple Token Spliter",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel/register test/**/*.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "*",
+    "babel": "*",
+    "chokidar": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoveKino/tokenspliter.git"
+  },
+  "keywords": [
+    "token",
+    "stream",
+    "spliter",
+    "morphology"
+  ],
+  "author": "ddchen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LoveKino/tokenspliter/issues"
+  },
+  "homepage": "https://github.com/LoveKino/tokenspliter#readme"
+}
