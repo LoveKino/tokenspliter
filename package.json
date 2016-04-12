@@ -1,16 +1,15 @@
 {
   "name": "tokenspliter",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Simple Token Spliter",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel/register test/**/*.js"
+    "test": "mocha test/**/*.js"
   },
   "dependencies": {},
   "devDependencies": {
-    "mocha": "*",
-    "babel": "*",
-    "chokidar": "*"
+    "defcomment": "0.0.4",
+    "mocha": "^2.4.5"
   },
   "repository": {
     "type": "git",

@@ -172,3 +172,11 @@ module.exports = (token_class) => {
         };
     };
 };
+
+;(function () {
+        var __exportsVariable = require('/Users/yuer/workspaceforme/opensource/tokenspliter/node_modules/defcomment/src/runUnit').exportsVariable;
+        __exportsVariable('/Users/yuer/workspaceforme/opensource/tokenspliter/test/unit/ret/tokenspliter.js', 'choseMatched', choseMatched);
+__exportsVariable('/Users/yuer/workspaceforme/opensource/tokenspliter/test/unit/ret/tokenspliter.js', 'getMatchs', getMatchs);
+__exportsVariable('/Users/yuer/workspaceforme/opensource/tokenspliter/test/unit/ret/tokenspliter.js', 'validate', validate);
+    })();
+    
