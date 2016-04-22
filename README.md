@@ -88,7 +88,7 @@ tokenStream.isEmpty()
 
 ## error token
 
-- default handling
+- by default
 
 Defaultly, throw an exception.
 
