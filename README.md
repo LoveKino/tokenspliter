@@ -88,9 +88,9 @@ tokenStream.isEmpty()
 
 ## error token
 
-- by default
+- default handling
 
-Defaultly, throw an exception.
+By default, throw an exception.
 
 ```js
 let tokenspliter = Tokenspliter([{
