@@ -3,8 +3,8 @@
 let assert = require('assert');
 let Tokenspliter = require('../index');
 
-describe('base', () => { // eslint-disable-line
-    it('next', () => { // eslint-disable-line
+describe('base', () => {
+    it('next', () => {
         let tokenspliter = Tokenspliter([{
             type: 'identify',
             regular: /[a-zA-Z][a-zA-Z0-9]*/
@@ -24,7 +24,7 @@ describe('base', () => { // eslint-disable-line
         assert.equal(t2.type, 'whitespace');
     });
 
-    it('lookAhead', () => { // eslint-disable-line
+    it('lookAhead', () => {
         let tokenspliter = Tokenspliter([{
             type: 'identify',
             regular: /[a-zA-Z][a-zA-Z0-9]*/
@@ -44,7 +44,7 @@ describe('base', () => { // eslint-disable-line
         assert.equal(t2.type, 'identify');
     });
 
-    it('lookAheads', () => { // eslint-disable-line
+    it('lookAheads', () => {
         let tokenspliter = Tokenspliter([{
             type: 'identify',
             regular: /[a-zA-Z][a-zA-Z0-9]*/
@@ -64,7 +64,7 @@ describe('base', () => { // eslint-disable-line
         assert.equal(t2.lexicon, 'a09');
     });
 
-    it('null', () => { // eslint-disable-line
+    it('null', () => {
         let tokenspliter = Tokenspliter([{
             type: 'identify',
             regular: /[a-zA-Z][a-zA-Z0-9]*/
@@ -86,7 +86,7 @@ describe('base', () => { // eslint-disable-line
         assert.equal(t6, null);
     });
 
-    it('isEmpty', () => { // eslint-disable-line
+    it('isEmpty', () => {
         let tokenspliter = Tokenspliter([{
             type: 'identify',
             regular: /[a-zA-Z][a-zA-Z0-9]*/
@@ -105,5 +105,24 @@ describe('base', () => { // eslint-disable-line
         assert.equal(tokenStream.isEmpty(), false);
         tokenStream.next();
         assert.equal(tokenStream.isEmpty(), true);
+    });
+
+    it('error', () => {
+        let tokenspliter = Tokenspliter([{
+            type: 'identify',
+            regular: /[a-zA-Z][a-zA-Z0-9]*/
+        }, {
+            type: 'number',
+            regular: /[0-9]+/
+        }, {
+            type: 'whitespace',
+            regular: /\s+/
+        }]);
+        let tokenStream = tokenspliter('a09 & bcd 12', null);
+        tokenStream.next();
+        tokenStream.next();
+        let t = tokenStream.next();
+        assert.equal(t.type, 'error_type');
+        assert.equal(t.lexicon, '&');
     });
 });

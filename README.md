@@ -68,10 +68,71 @@ Look ahead one step, and return next token, but token stream will hold.
 let t1 = tokenStream.lookAhead(); // {type: 'identity', 'lexion': 'a09'}
 ```
 
+- lookAheads
+
+Look ahead more steps.
+
+First parameter is steps, second paramter is filter (optional). If has filter, only when filter returns true, it will count one step ahead.
+
+```js
+let t1 = tokenStream.lookAheads(3, (token) => token.type !== 'whitespace');
+```
+
 - isEmpty
 
 If token stream comes to end, will return true, otherwise will return false;
 
 ```js
 tokenStream.isEmpty()
+```
+
+## error token
+
+- default handling
+
+Defaultly, throw an exception.
+
+```js
+let tokenspliter = Tokenspliter([{
+    type: 'identify',
+    regular: /[a-zA-Z][a-zA-Z0-9]*/
+}, {
+    type: 'number',
+    regular: /[0-9]+/
+}, {
+    type: 'whitespace',
+    regular: /\s+/
+}]);
+let tokenStream = tokenspliter('a09 & bcd 12');
+tokenStream.next();
+tokenStream.next();
+tokenStream.next(); // throw an error
+```
+
+- ignore handling
+
+Set tokespliter's second parameter as null, will ignore exception, and when meet unrecoginized token, will return it as error token. The data structure of error token is:
+
+```
+{
+    type: 'error_type',
+    lexcion: 'some characters'
+}
+```
+
+```js
+let tokenspliter = Tokenspliter([{
+    type: 'identify',
+    regular: /[a-zA-Z][a-zA-Z0-9]*/
+}, {
+    type: 'number',
+    regular: /[0-9]+/
+}, {
+    type: 'whitespace',
+    regular: /\s+/
+}]);
+let tokenStream = tokenspliter('a09 & bcd 12', null); // null
+tokenStream.next();
+tokenStream.next();
+tokenStream.next(); // {type: 'error_type', lexion: '&'}
 ```

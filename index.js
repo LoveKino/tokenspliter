@@ -1,1 +1,1 @@
-module.exports = require('./src/tokenspliter');
+module.exports = require('./src');
