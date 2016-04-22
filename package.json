@@ -8,7 +8,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "defcomment": "0.0.4",
+    "defcomment": "0.0.9",
     "mocha": "^2.4.5"
   },
   "repository": {
