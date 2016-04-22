@@ -23,7 +23,7 @@ let t2 = tokenStream.next(); // {type: 'whitespace', 'lexion': ' '}
 
 ## install
 
-`npm i tokenspliter`
+`npm i tokenspliter --save`
 
 ## usage
 
